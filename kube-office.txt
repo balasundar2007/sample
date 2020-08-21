@@ -1,8 +1,5 @@
 https://www.examslocal.com/linuxfoundation 
 
-https://github.com/
-balasundar2007/12bala34?
-
 --restart=Never
 ------------------------------------------
 source <(kubectl completion bash)
