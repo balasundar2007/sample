@@ -1,0 +1,313 @@
+https://www.examslocal.com/linuxfoundation 
+
+https://github.com/
+balasundar2007/12bala34?
+
+--restart=Never
+------------------------------------------
+source <(kubectl completion bash)
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+alias k=kubectl
+complete -F __start_kubectl k
+vim .vimrc
+set nu ruler expandtab ts=2 sw=2
+export do="--dry-run=client -o yaml"
+export now="--grace-period=0 --force"
+-------------------------------------------
+kubectl config set-context $(kubectl config current-context) --namespace=<NAMESPACE>
+
+alias ksc="kubectl config set-context $(kubectl config current-context)" --namespace=
+alias kde="kubectl describe"
+alias kg="kubectl get"
+alias k=kubectl
+alias kaf="kubectl apply -f"
+alias kcf="kubectl create -f"
+alias kdf="kubectl delete -f"
+
+alias kc="kubectl create"
+alias kdel="kubectl delete"
+export doc="--dry-run=client -o yaml"
+export do="--dry-run -o yaml"
+
+alias kn="kubectl get nodes -o wide"
+alias kp="kubectl get pods -o wide"
+alias kd="kubectl get deployment -o wide"
+alias ks="kubectl get svc -o wide"
+
+alias kdp="kubectl describe pod"
+alias kdd="kubectl describe deployment"
+alias kds="kubectl describe service"
+alias kdn="kubectl describe node"
+alias kdry="kubectl run --dry-run=client -o yaml"
+alias kgp="kubectl run --generator=run-pod/v1 --dry-run=client -o yaml"
+alias kgd="kubectl run --generator=deployment/apps/v1 --dry-run=client -o yaml"
+
+
+ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+     --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key \
+     snapshot save /tmp/snapshot-pre-boot.db
+
+    volumeMounts:
+    - name: 
+      mountPath: "/etc/foo"
+      readOnly: true
+  volumes:
+  - name: foo
+    secret:
+      secretName: mysecret
+	  
+apt-mark unhold kubeadm && \
+apt-get update && apt-get install -y kubeadm=1.18.0-00 && \
+apt-mark hold kubeadm
+
+apt-mark unhold kubelet kubectl && \
+apt-get update && apt-get install -y kubelet=1.18.0-00 kubectl=1.18.0-00 && \
+apt-mark hold kubelet kubectl
+
+
+	 
+cat <<EOF | kubectl apply -f -
+apiVersion: certificates.k8s.io/v1beta1
+kind: CertificateSigningRequest
+metadata:
+  name: john-developer
+spec:
+  request: $(cat john.csr | base64 | tr -d '\n')
+  usages:
+  - digital signature
+  - key encipherment
+  - server auth
+EOF
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-analytics
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/pv/data-analytics"
+
+
+https://github.com/kodekloudhub/kubernetes-metrics-server.git
+
+kg ds -A; kg cm -A; kg secrets -A; kg pv -A; kg pvc -A
+
+kubectl exec -it internal -- nc -v -z -w 2 10.100.162.178 8080
+kubectl exec -it external -- nc -v -z -w 2 10.100.162.178 8080
+master $ kubectl run test-1 --image=busybox:1.28 --rm -it -- nslookup 10-244-1-7
+
+
+
+alias kgp="kubectl run --generator=run-pod/v1 --dry-run=client -o yaml"
+alias kgd="kubectl run --generator=deployment/apps.v1 --dry-run=client -o yaml"
+alias kdry="kubectl run --dry-run=client -o yaml"
+
+kubectl run --generator=run-pod/v1 nginx --image=nginx --dry-run -o yaml
+kubectl create deployment --image=nginx nginx --dry-run -o yaml > nginx-deployment.yaml
+
+/etc/kubernetes/pki/
+
+node01 $  journalctl -u kubelet -f
+
+jsonpath="{.items[0].spec.ports[0].nodePort}")
+
+
+Use JSON PATH query to retrieve the osImages of all the nodes and store it in a file /opt/outputs/nodes_os_x43kj56.txt
+
+
+The osImages are under the nodeInfo section under status of each node.
+Expose the hr-web-app as service hr-web-app-service application on port 30082 on the nodes on the cluster
+
+
+The web application listens on port 8080
+
+
+Weight: 10
+
+Name: hr-web-app-service
+Type: NodePort
+Endpoints: 2
+Port: 8080
+NodePort: 30082
+
+Create a Persistent Volume with the given specification.
+
+
+Weight: 8
+
+Volume Name: pv-analytics
+Storage: 100Mi
+Access modes: ReadWriteMany
+Host Path: /pv/data-analytics
+
+0000000000000000000000
+Create an nginx pod called nginx-resolver using image nginx, expose it internally with a service called nginx-resolver-service. Test that you are able to look up the service and pod names from within the cluster. Use the image: busybox:1.28 for dns lookup. Record results in /root/nginx.svc and /root/nginx.pod
+
+Pod: nginx-resolver created
+Service DNS Resolution recorded correctly
+Pod DNS resolution recorded correctly
+
+
+Create a static pod on node01 called nginx-critical with image nginx. Create this pod on node01 and make sure that it is recreated/restarted automatically in case of a failure.
+
+
+Use /etc/kubernetes/manifests as the Static Pod path for example.
+
+
+cat >> ~/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyCX8Y2jc8OCGkv/B+xr6u5c452VOxmN4McBssGaAiHuDntf+gKcaLxt+ctX47nfCwYDEPHVIK4iiHjzqCgDyGUirSCcwOof3vWm3baljcl19/h8XL0hteX/HNAHFxAKvIJOeWKIGxtFwr/xlS2pVR+ZbZ4DYWHIhAfeyeelr/6fiDjadJg9qfFcalxooXl4H3SaJ4JSxze6+nJf5twFRhdOXN9GP55fKvt7e0n2o5EGqEN/4K1aq0yfsvZn4j3czzLnY0xh1aQbNqP2sS+647S+wJucXbcbjsQslYr5uq+R2bSQooTdLFXAi5hAXXjlFjqxwm36WgeQFWvaRIeErh root@BLRCSLOPICS0023
+EOF
+
+cat >> ~/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP0wn2WHotRcq9flXDezyCKEYvCn2V33er05m8aoN2huCA80lHuJVlPI9k5hzVOkY6Tmvliqi9Tr9q3AJ9ZuyglWigLXsc0l4uXyPM1YE7LJIfxz3Cj1s7YCyMa9VgCLdzBWmllkFKuC45qxg0s2AexsLdQWFTx6MyLLjlFAxAJcclmfx0mL0Fb/NdDJ9sGabz5IAimliXiBg5OqPS5BX7bead37LYL226hOQSG/mdMdunCXsve631+vGkX2es4HuaS7Sj3VIdCPO4gUnOB2H8a/Jrpnt7zD9DvhaO5UHgSTsREX8DFbD2zbxSxnf+Hp+3RwXK2VEFQaZg9FP9Cq+h micloud@BLRCSLOPICS0023
+EOF
+
+micloud
+cat >> ~/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP0wn2WHotRcq9flXDezyCKEYvCn2V33er05m8aoN2huCA80lHuJVlPI9k5hzVOkY6Tmvliqi9Tr9q3AJ9ZuyglWigLXsc0l4uXyPM1YE7LJIfxz3Cj1s7YCyMa9VgCLdzBWmllkFKuC45qxg0s2AexsLdQWFTx6MyLLjlFAxAJcclmfx0mL0Fb/NdDJ9sGabz5IAimliXiBg5OqPS5BX7bead37LYL226hOQSG/mdMdunCXsve631+vGkX2es4HuaS7Sj3VIdCPO4gUnOB2H8a/Jrpnt7zD9DvhaO5UHgSTsREX8DFbD2zbxSxnf+Hp+3RwXK2VEFQaZg9FP9Cq+h micloud@BLRCSLOPICS0023
+EOF
+
+root 
+
+cat >> ~/.ssh/authorized_keys <<EOF
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSOo3I0yBNQQkLm3Z6DGPZkpD3IR5uZ5dAie3PYK93W4fr44+BFZMzuM78lG3mfdkLMF9ucsbBhRdxsKu8jbo+js6DNnbi92un+a4EmAAbaVFrc4sq2cfwuGZwOS2gSrqoBLQynMJxIYQti/x0zRP1wxm78eX+ey0/K1WQLpOVWHCZqmFb6i9dPXsF5IsuOjWUMGCbFh+qoF0XD8SqvvYBvn6mc0kKDzGpeQAQlMPgrHrezMqsmB06VFznGNUEOqHLwihPfNcAevb2I87m4Fp4XQPe362I0/kG8AhlYB48giGI4q064YSYh4ts0BRYfL/sgD0bnRLqXgTxjINlWEDd root@BLRCSLOPICS0023
+EOF
+
+ mkdir -p $HOME/.kube
+  sudo cp -i admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  
+
+ mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubeadm join 10.240.184.37:6443 --token cbnfga.v2lzg8r8h1a8q1fi \
+    --discovery-token-ca-cert-hash sha256:6634878a1041879442b36c21e1657df558f8b958097f753b97cbe2fe6586e3d2
+
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+Create a new service account with the name pvviewer. Grant this Service account access to list all PersistentVolumes in the cluster by creating an appropriate cluster role called pvviewer-role and ClusterRoleBinding called pvviewer-role-binding.
+Next, create a pod called pvviewer with the image: redis and serviceAccount: pvviewer in the default namespace
+
+
+Weight: 12
+
+ServiceAccount: pvviewer
+ClusterRole: pvviewer-role--sort-by
+ClusterRoleBinding: pvviewer-role-binding
+Pod: pvviewer
+Pod configured to use ServiceAccount pvviewer ?
+
+Print the names of all deployments in the admin2406 namespace in the following format:
+DEPLOYMENT CONTAINER_IMAGE READY_REPLICAS NAMESPACE
+<deployment name> <container image used> <ready replica count> <Namespace>
+. The data should be sorted by the increasing order of the deployment name.
+
+
+Example:
+DEPLOYMENT CONTAINER_IMAGE READY_REPLICAS NAMESPACE
+deploy0 nginx:alpine 1 admin2406
+Write the result to the file /opt/admin2406_data.
+
+Hint: Make use of -o custom-columns and --sort-by to print the data in the required format.
+
+kg deploy -n admin2406  -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,READY_REPLICAS:.spec.replicas,NAMESPACE:.metadata.namespace  --sort-by=.metadata.name
+
+A kubeconfig file called admin.kubeconfig has been created in /root. There is something wrong with the configuration. Troubleshoot and fix it.
+
+k config set-cluster kubernetes --server=https://172.17.0.78:6443 --kubeconfig=admin.kubeconfig
+
+
+create a new deployment called nginx-deploy, with image nginx:1.16 and 1 replica. Next upgrade the deployment to version 1.17 using rolling update. Make sure that the version upgrade is recorded in the resource annotation.
+
+Image: nginx:1.16
+Task: Upgrade the version of the deployment to 1:17
+Task: Record the changes for the image upgrade
+
+k run nginx-deploy --image=nginx:1.16 --record
+k set image  deployment.apps/nginx-deploy  nginx=nginx:1.17 --record
+
+Create a new deployment called nginx-deploy, with image nginx:1.16 and 1 replica. Next upgrade the deployment to version 1.17 using rolling update. Make sure that the version upgrade is recorded in the resource annotation.
+
+Image: nginx:1.16
+Task: Upgrade the version of the deployment to 1:17
+Task: Record the changes for the image upgrade
+
+A new deployment called alpha-mysql has been deployed in the alpha namespace. However, the pods are not running. Troubleshoot and fix the issue. The deployment should make use of the persistent volume alpha-pv to be mounted at /var/lib/mysql and should use the environment variable MYSQL_ALLOW_EMPTY_PASSWORD=1 to make use of an empty root password.
+
+Important: Do not alter the persistent volume.
+
+Take the backup of ETCD at the location /opt/etcd-backup.db on the master node
+
+Create a pod called secret-1401 in the admin1401 namespace using the busybox image. The container within the pod should be called secret-admin and should sleep for 4800 seconds.
+
+The container should mount a read-only secret volume called secret-volume at the path /etc/secret-volume. The secret being mounted has already been created for you and is called dotfile-secret.
+
+master $ kg node -o custom-columns=DEPLOYMENTS:.metadata.name,NAMESPACE:.metadata.namespace,CONTAINER_IMAGE:.spec.template.spec.containers.image,REPLICAS:.spec.replicas
+
+master $ kg deploy -n admin2406  -o custom-columns=DEPLOYMENTS:.metadata.name,NAMESPACE:.metadata.namespace,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,REPLICAS:.spec.replicas --sort-by=.metadata.name > /opt/admin2406_data
+
+master $ k config --kubeconfig=admin.kubeconfig  set-cluster kubernetes --server=https://172.17.0.12:6443
+
+k run nginx-deploy --image=nginx:1.16 --record --replicas=1
+k set image deployment.apps/nginx-deploy nginx-deploy=nginx:1.17 --record
+
+
+cat /opt/admin2406_data | awk '{print $1,$2,$3,$4}' > /tmp/q2 && diff /tmp/q2 /var/answers/answer2-data | wc -l | grep 0","err_message
+
+
+master $ alias kg="kubectl get"
+master $ alias k=kubectl
+master $
+master $ alias kn="kubectl get nodes -o wide"
+master $ alias kp="kubectl get pods -o wide"
+master $ alias kd="kubectl get deployment -o wide"
+master $ alias ks="kubectl get svc -o wide"
+master $
+master $ alias kdp="kubectl describe pod"master $ alias kdd="kubectl describe deployment"
+master $ alias kds="kubectl describe service"
+master $ alias kdn="kubectl describe node"
+master $ alias kdry="kubectl run --dry-run=client -o yaml"
+master $ kg deploy -n admin2406  -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,READY_REPLICAS:.spec.replicas,NAMESPACE:.metadata.namespace  --sort-by=.metadata.name
+DEPLOYMENT   CONTAINER_IMAGE   READY_REPLICAS   NAMESPACE
+deploy1      nginx             1                admin2406
+deploy2      nginx:alpine      1                admin2406
+deploy3      nginx:1.16        1                admin2406
+deploy4      nginx:1.17        1                admin2406
+deploy5      nginx:latest      1                admin2406
+
+master $ kg deploy -n admin2406  -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[*].image,READY_REPLICAS:.spec.replicas,NAMESPACE:.metadata.namespace  --sort-by=.metadata.name > /opt/admin2406_data
+master $ k config set-cluster kubernetes --server=https://172.17.0.78:6443 --kubeconfig=admin.kubeconfig
+Cluster "kubernetes" set.
+
+master $ k run nginx-deploy --image=nginx:1.16 --record --replicas=1
+
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/nginx-deploy created
+
+master $ k set image deployment.apps/nginx-deploy nginx-deploy=nginx:1.17 --record
+deployment.apps/nginx-deploy image updated
+
+  34  apt-mark unhold kubectl
+   35  apt-mark unhold kube-proxy
+   37  apt-mark unhold kubelet
+   39  apt-get update && apt-get install -y kubeadm=1.18.0-00 && apt-mark hold kubeadm
+   40  kubeadm upgrade apply 1.18.0-00
+   41  kubeadm version
+   42  kubeadm upgrade plan
+   43  kubeadm upgrade apply v1.18.0
+   46  apt-mark unhold kubelet
+   47  apt-mark unhold kubectl
+   52  apt-get update && apt-get install -y kubectl=1.18.0
+   53  apt-get update && apt-get install -y kubectl=1.18.0-00
+   54  apt-get update && apt-get install -y kubelet=1.18.0-00
+   55  apt-mark hold kubectl
+   56  apt-mark hold kubelet
+   57  kubeadm upgrade plan
+   
